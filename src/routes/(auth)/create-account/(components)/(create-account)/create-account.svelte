@@ -38,7 +38,7 @@
 	const { form: formData, enhance, submitting, delayed, timeout } = form;
 </script>
 
-<section class="flex h-full flex-col gap-6">
+<section class="flex h-full w-full flex-col gap-6 sm:my-auto sm:h-fit sm:max-w-xs">
 	<Button href="/" variant="ghost" size="icon">
 		<IconArrowNarrowLeft />
 	</Button>
@@ -78,6 +78,6 @@
 			<Form.FieldErrors />
 		</Form.Field>
 
-		<Form.Button class="mt-auto">Next</Form.Button>
+		<Form.Button class="mt-auto md:mt-5">Next</Form.Button>
 	</form>
 </section>

@@ -36,13 +36,13 @@
 	const pageState = $derived(page.state) as { email: string; name: string } | null;
 </script>
 
-<section
+<div
 	{@attach (el) => {
 		if (!el) return;
 		$formData.name = pageState?.name ?? '';
 		$formData.email = pageState?.email ?? '';
 	}}
-	class="flex h-full flex-col gap-4"
+	class="flex h-full w-full flex-col gap-4 sm:my-auto sm:h-fit sm:max-w-xs"
 >
 	<Button href="/create-account" variant="ghost" size="icon">
 		<IconArrowNarrowLeft />
@@ -55,12 +55,7 @@
 		</span>
 	</div>
 
-	<form
-		method="POST"
-		use:enhance
-		action="?/verifyCodeEvent"
-		class="flex h-full flex-col justify-between gap-2"
-	>
+	<form method="POST" use:enhance action="?/verifyCodeEvent" class="flex h-full flex-col gap-2">
 		<Form.Field {form} name="code" class="flex flex-col items-center justify-center ">
 			<Form.Control>
 				{#snippet children({ props })}
@@ -84,6 +79,6 @@
 			<Form.FieldErrors />
 		</Form.Field>
 
-		<Form.Button>Confirm</Form.Button>
+		<Form.Button class="mt-auto md:mt-5">Confirm</Form.Button>
 	</form>
-</section>
+</div>

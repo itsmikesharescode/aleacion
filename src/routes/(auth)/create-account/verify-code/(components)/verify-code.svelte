@@ -42,7 +42,7 @@
 		$formData.name = pageState?.name ?? '';
 		$formData.email = pageState?.email ?? '';
 	}}
-	class="flex h-full w-full flex-col gap-4 sm:my-auto sm:h-fit sm:max-w-xs"
+	class="@container flex h-full w-full flex-col gap-4 sm:my-auto sm:h-fit sm:max-w-xs"
 >
 	<Button href="/create-account" variant="ghost" size="icon">
 		<IconArrowNarrowLeft />
@@ -68,7 +68,7 @@
 						{#snippet children({ cells })}
 							<InputOTP.Group>
 								{#each cells as cell (cell)}
-									<InputOTP.Slot {cell} class="border-primary w-14" />
+									<InputOTP.Slot {cell} class="border-primary @min-[330px]:w-14" />
 								{/each}
 							</InputOTP.Group>
 						{/snippet}

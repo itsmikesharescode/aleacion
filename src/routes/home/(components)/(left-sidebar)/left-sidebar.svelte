@@ -5,8 +5,10 @@
 	import IconMail from '@tabler/icons-svelte/icons/mail';
 	import IconUser from '@tabler/icons-svelte/icons/user';
 	import IconMessageCircleQuestion from '@tabler/icons-svelte/icons/message-circle-question';
-	import Button from '$lib/components/internals/button/button.svelte';
+	import Button, { buttonVariants } from '$lib/components/internals/button/button.svelte';
 	import { ScrollArea } from '$lib/components/internals/scroll-area/index';
+	import * as Popover from '$lib/components/internals/popover/index';
+	import IconDots from '@tabler/icons-svelte/icons/dots';
 
 	const leftSideBarRoutes = [
 		{
@@ -37,23 +39,46 @@
 	];
 </script>
 
-<aside class="bg-secondary sticky top-0 w-fit border-r">
+<aside class="sticky top-0 w-fit xl:w-full">
 	<ScrollArea class="h-[100dvh]">
-		<div class="flex flex-col items-center justify-center gap-8 p-4 lg:items-start">
-			{#each leftSideBarRoutes as routes}
-				<Button
-					variant="ghost"
-					href={routes.href}
-					class="hover:bg-secondary border-secondary hover:border-primary flex w-full items-center justify-start gap-4 border transition-all"
-				>
-					<routes.icon class="size-7" />
-					<span class="hidden lg:block">{routes.label}</span>
+		<div class="flex h-full flex-col">
+			<div class="flex w-full flex-col items-center justify-center gap-4 p-4 lg:items-start">
+				{#each leftSideBarRoutes as routes}
+					<Button
+						variant="ghost"
+						href={routes.href}
+						class="hover:bg-secondary hover:border-primary flex w-full items-center justify-start gap-4 rounded-full transition-all"
+					>
+						<routes.icon class="size-4" />
+						<span class="hidden xl:block">{routes.label}</span>
+					</Button>
+				{/each}
+				<Button class="rounded-full xl:w-full">
+					<IconMessageCircleQuestion class="size-4 xl:hidden" />
+					<span class="hidden xl:block">Post</span>
 				</Button>
-			{/each}
-			<Button class="h-14 rounded-full lg:w-full">
-				<IconMessageCircleQuestion class="size-8 lg:hidden" />
-				<span class="hidden lg:block">Post</span>
-			</Button>
+			</div>
+
+			<div class="mt-auto flex items-center justify-center pb-4">
+				<Popover.Root>
+					<Popover.Trigger
+						class="hover:bg-sidebar-border grid items-center gap-2 rounded-full  transition-all xl:w-full xl:grid-cols-[auto_1fr_auto] xl:p-2"
+					>
+						<div class="bg-primary size-10 rounded-full"></div>
+
+						<div class="hidden flex-col items-start overflow-hidden xl:flex">
+							<span class="truncate text-sm">Mike John</span>
+							<span class="text-muted-foreground truncate text-xs">@mikeyrue</span>
+						</div>
+
+						<IconDots class="hidden size-4 xl:block" />
+					</Popover.Trigger>
+
+					<Popover.Content sideOffset={2}>
+						<Button variant="ghost" class="w-full justify-start">Logout @mikeyrue</Button>
+					</Popover.Content>
+				</Popover.Root>
+			</div>
 		</div>
 	</ScrollArea>
 </aside>

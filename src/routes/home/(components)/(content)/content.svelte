@@ -1,13 +1,12 @@
 <script lang="ts">
 	import { ScrollArea } from '$lib/components/internals/scroll-area/index.js';
 	import ContentNav from './(components)/(content-nav)/content-nav.svelte';
-	import * as Tabs from '$lib/components/internals/tabs/index';
 </script>
 
-<aside class="h-[100dvh] border-r">
+<aside class="h-[100dvh]">
 	<ContentNav />
-	<ScrollArea class="h-[calc(100dvh-52px] px-2">
-		<section class="h-[calc(100dvh-52px)]">
+	<ScrollArea class="h-[calc(100dvh-76px]  pr-2">
+		<section class="mt-4.5 h-[calc(100dvh-76px)]">
 			<div class="flex flex-col gap-4">
 				{#each Array(60), i}
 					<div

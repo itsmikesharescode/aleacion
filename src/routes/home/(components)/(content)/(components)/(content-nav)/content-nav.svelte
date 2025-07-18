@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/state';
+	import Button from '$lib/components/internals/button/button.svelte';
 	import { urlParamStacker, urlParamReducer } from '$lib/utils';
 
 	const activeParam = $derived(page.url.searchParams.get('tab'));
@@ -21,16 +22,19 @@
 	];
 </script>
 
-<nav class="sticky top-0 grid grid-cols-2 items-center border-b bg-green-500">
-	{#each tabs as tab}
-		<a
+<nav class="sticky top-0 grid grid-cols-2 items-center border-b bg-white">
+	{#each tabs as tab, i}
+		<Button
+			variant="ghost"
 			href={tab.href}
 			class={[
-				'bg-secondary border-x-1 p-2 text-center',
-				page.url.href === `${page.url.origin}${tab.href}` ? 'font-bold' : 'font-normal'
+				'bg-secondary hover:bg-sidebar-border rounded-none border-none text-center transition-all',
+				page.url.href === `${page.url.origin}${tab.href}`
+					? 'font-bold underline'
+					: 'text-muted-foreground font-normal'
 			]}
 		>
 			{tab.label}
-		</a>
+		</Button>
 	{/each}
 </nav>

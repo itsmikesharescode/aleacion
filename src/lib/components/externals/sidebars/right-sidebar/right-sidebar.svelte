@@ -3,9 +3,17 @@
 	import { Input } from '$lib/components/internals/input/index';
 	import * as Card from '$lib/components/internals/card/index';
 	import { ScrollArea } from '$lib/components/internals/scroll-area/index';
+	import { cn } from '$lib/utils';
+	import type { ClassNameValue } from 'tailwind-merge';
+
+	interface Props {
+		class?: ClassNameValue;
+	}
+
+	const { class: className }: Props = $props();
 </script>
 
-<aside class="h-[100dvh]">
+<aside class={cn('w-full', className)}>
 	<ScrollArea class="h-[100dvh]">
 		<div class="hidden flex-col gap-4 p-2 xl:flex xl:w-[280px]">
 			<div class="relative flex items-center">

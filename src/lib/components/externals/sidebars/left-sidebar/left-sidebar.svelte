@@ -4,11 +4,19 @@
 	import IconBellRinging from '@tabler/icons-svelte/icons/bell-ringing';
 	import IconMail from '@tabler/icons-svelte/icons/mail';
 	import IconUser from '@tabler/icons-svelte/icons/user';
-	import IconMessageCircleQuestion from '@tabler/icons-svelte/icons/message-circle-question';
-	import Button, { buttonVariants } from '$lib/components/internals/button/button.svelte';
+	import Button from '$lib/components/internals/button/button.svelte';
 	import { ScrollArea } from '$lib/components/internals/scroll-area/index';
 	import * as Popover from '$lib/components/internals/popover/index';
 	import IconDots from '@tabler/icons-svelte/icons/dots';
+	import { cn } from '$lib/utils';
+	import type { ClassNameValue } from 'tailwind-merge';
+	import CreatePost from '$lib/components/externals/create-post/create-post.svelte';
+
+	interface Props {
+		class?: ClassNameValue;
+	}
+
+	const { class: className }: Props = $props();
 
 	const leftSideBarRoutes = [
 		{
@@ -39,7 +47,7 @@
 	];
 </script>
 
-<aside class="sticky top-0 w-fit xl:w-full">
+<aside class={cn('w-full', className)}>
 	<ScrollArea class="h-[100dvh]">
 		<div class="flex h-full flex-col">
 			<div class="flex w-full flex-col items-center justify-center gap-4 p-4 lg:items-start">
@@ -53,10 +61,8 @@
 						<span class="hidden xl:block">{routes.label}</span>
 					</Button>
 				{/each}
-				<Button class="rounded-full xl:w-full">
-					<IconMessageCircleQuestion class="size-4 xl:hidden" />
-					<span class="hidden xl:block">Post</span>
-				</Button>
+
+				<CreatePost />
 			</div>
 
 			<div class="mt-auto flex items-center justify-center pb-4">

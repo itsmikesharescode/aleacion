@@ -94,7 +94,7 @@
 	</Select.Root>
 
 	<Select.Root onOpenChange={onChange} type="single" bind:value={selectedDate.year} allowDeselect>
-		<Select.Trigger class="bg-background w-18">
+		<Select.Trigger class="bg-background w-fit">
 			{selectedDate.year || 'Year'}
 		</Select.Trigger>
 		<Select.Content>

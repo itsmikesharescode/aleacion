@@ -1,0 +1,404 @@
+.lexical-content-renderer .SL_Theme__ltr {
+	text-align: left !important;
+}
+
+.lexical-content-renderer .SL_Theme__rtl {
+	text-align: right !important;
+}
+
+.lexical-content-renderer .SL_Theme__paragraph {
+	margin: 0 !important;
+	position: relative !important;
+}
+
+.lexical-content-renderer .SL_Theme__quote {
+	margin: 0 !important;
+	margin-left: 20px !important;
+	margin-bottom: 10px !important;
+	font-size: 15px !important;
+	color: rgb(101, 103, 107) !important;
+	border-left-color: rgb(206, 208, 212) !important;
+	border-left-width: 4px !important;
+	border-left-style: solid !important;
+	padding-left: 16px !important;
+}
+
+.lexical-content-renderer .SL_Theme__h1 {
+	font-size: 24px !important;
+	color: rgb(5, 5, 5) !important;
+	font-weight: 400 !important;
+	margin: 0 !important;
+}
+
+.lexical-content-renderer .SL_Theme__h2 {
+	font-size: 15px !important;
+	color: rgb(101, 103, 107) !important;
+	font-weight: 700 !important;
+	margin: 0 !important;
+	text-transform: uppercase !important;
+}
+
+.lexical-content-renderer .SL_Theme__h3 {
+	font-size: 12px !important;
+	margin: 0 !important;
+	text-transform: uppercase !important;
+}
+
+.lexical-content-renderer .SL_Theme__indent {
+	--lexical-indent-base-value: 40px !important;
+}
+
+.lexical-content-renderer .SL_Theme__textBold {
+	font-weight: bold !important;
+}
+
+.lexical-content-renderer .SL_Theme__paragraph mark {
+	background-color: unset !important;
+}
+
+.lexical-content-renderer .SL_Theme__textHighlight {
+	background: rgba(255, 212, 0, 0.14) !important;
+	border-bottom: 2px solid rgba(255, 212, 0, 0.3) !important;
+}
+
+.lexical-content-renderer .SL_Theme__textItalic {
+	font-style: italic !important;
+}
+
+.lexical-content-renderer .SL_Theme__textUnderline {
+	text-decoration: underline !important;
+}
+
+.lexical-content-renderer .SL_Theme__textStrikethrough {
+	text-decoration: line-through !important;
+}
+
+.lexical-content-renderer .SL_Theme__textUnderlineStrikethrough {
+	text-decoration: underline line-through !important;
+}
+
+.lexical-content-renderer .SL_Theme__textSubscript {
+	font-size: 0.8em !important;
+	vertical-align: sub !important;
+}
+
+.lexical-content-renderer .SL_Theme__textSuperscript {
+	font-size: 0.8em !important;
+	vertical-align: super !important;
+}
+
+.lexical-content-renderer .SL_Theme__textCode {
+	background-color: rgb(240, 242, 245) !important;
+	padding: 1px 0.25rem !important;
+	font-family: Menlo, Consolas, Monaco, monospace !important;
+	font-size: 94% !important;
+}
+
+.lexical-content-renderer .SL_Theme__textLowercase {
+	text-transform: lowercase !important;
+}
+
+.lexical-content-renderer .SL_Theme__textUppercase {
+	text-transform: uppercase !important;
+}
+
+.lexical-content-renderer .SL_Theme__textCapitalize {
+	text-transform: capitalize !important;
+}
+
+.lexical-content-renderer .SL_Theme__hashtag {
+	background-color: rgba(88, 144, 255, 0.15) !important;
+	border-bottom: 1px solid rgba(88, 144, 255, 0.3) !important;
+}
+
+.lexical-content-renderer .SL_Theme__link {
+	color: rgb(33, 111, 219) !important;
+	text-decoration: none !important;
+}
+
+.lexical-content-renderer .SL_Theme__link:hover {
+	text-decoration: underline !important;
+	cursor: pointer !important;
+}
+
+.lexical-content-renderer .SL_Theme__code {
+	background-color: rgb(240, 242, 245) !important;
+	font-family: Menlo, Consolas, Monaco, monospace !important;
+	display: block !important;
+	padding: 8px 8px 8px 52px !important;
+	line-height: 1.53 !important;
+	font-size: 13px !important;
+	margin: 0 !important;
+	margin-top: 8px !important;
+	margin-bottom: 8px !important;
+	overflow-x: auto !important;
+	position: relative !important;
+	tab-size: 2 !important;
+}
+
+.lexical-content-renderer .SL_Theme__code:before {
+	content: attr(data-gutter) !important;
+	position: absolute !important;
+	background-color: #eee !important;
+	left: 0 !important;
+	top: 0 !important;
+	border-right: 1px solid #ccc !important;
+	padding: 8px !important;
+	color: #777 !important;
+	white-space: pre-wrap !important;
+	word-break: break-all !important;
+	text-align: right !important;
+	min-width: 25px !important;
+}
+
+.lexical-content-renderer .SL_Theme__table {
+	border-collapse: collapse !important;
+	border-spacing: 0 !important;
+	overflow-y: scroll !important;
+	overflow-x: scroll !important;
+	table-layout: fixed !important;
+	width: fit-content !important;
+	margin-top: 25px !important;
+	margin-bottom: 30px !important;
+}
+
+.lexical-content-renderer .SL_Theme__tableCell {
+	border: 1px solid #bbb !important;
+	width: 75px !important;
+	vertical-align: top !important;
+	text-align: start !important;
+	padding: 6px 8px !important;
+	position: relative !important;
+	outline: none !important;
+	overflow: auto !important;
+}
+
+.lexical-content-renderer .SL_Theme__tableCellHeader {
+	background-color: #f2f3f5 !important;
+	text-align: start !important;
+}
+
+.lexical-content-renderer .SL_Theme__ol1 {
+	padding: 0 !important;
+	margin: 0 !important;
+	list-style-position: outside !important;
+}
+
+.lexical-content-renderer .SL_Theme__ol2 {
+	padding: 0 !important;
+	margin: 0 !important;
+	list-style-type: upper-alpha !important;
+	list-style-position: outside !important;
+}
+
+.lexical-content-renderer .SL_Theme__ol3 {
+	padding: 0 !important;
+	margin: 0 !important;
+	list-style-type: lower-alpha !important;
+	list-style-position: outside !important;
+}
+
+.lexical-content-renderer .SL_Theme__ol4 {
+	padding: 0 !important;
+	margin: 0 !important;
+	list-style-type: upper-roman !important;
+	list-style-position: outside !important;
+}
+
+.lexical-content-renderer .SL_Theme__ol5 {
+	padding: 0 !important;
+	margin: 0 !important;
+	list-style-type: lower-roman !important;
+	list-style-position: outside !important;
+}
+
+.lexical-content-renderer .SL_Theme__ul {
+	padding: 0 !important;
+	margin: 0 !important;
+	list-style-position: outside !important;
+}
+
+.lexical-content-renderer .SL_Theme__listItem {
+	margin: 0 32px !important;
+}
+
+.lexical-content-renderer .SL_Theme__listItem::marker {
+	font-variant-numeric: tabular-nums !important;
+	display: inline-block !important;
+	width: 1ch !important;
+	height: 1ch !important;
+}
+
+.lexical-content-renderer .SL_Theme__listItemChecked,
+.lexical-content-renderer .SL_Theme__listItemUnchecked {
+	position: relative !important;
+	margin-left: 8px !important;
+	margin-right: 8px !important;
+	padding-left: 24px !important;
+	padding-right: 24px !important;
+	list-style-type: none !important;
+	outline: none !important;
+}
+
+.lexical-content-renderer .SL_Theme__listItemChecked {
+	text-decoration: line-through !important;
+}
+
+.lexical-content-renderer .SL_Theme__listItemUnchecked:before,
+.lexical-content-renderer .SL_Theme__listItemChecked:before {
+	content: '' !important;
+	width: 16px !important;
+	height: 16px !important;
+	top: 2px !important;
+	left: 0 !important;
+	cursor: pointer !important;
+	display: block !important;
+	background-size: cover !important;
+	position: absolute !important;
+}
+
+.lexical-content-renderer .SL_Theme__listItemUnchecked[dir='rtl']:before,
+.lexical-content-renderer .SL_Theme__listItemChecked[dir='rtl']:before {
+	left: auto !important;
+	right: 0 !important;
+}
+
+.lexical-content-renderer .SL_Theme__listItemUnchecked:focus:before,
+.lexical-content-renderer .SL_Theme__listItemChecked:focus:before {
+	box-shadow: 0 0 0 2px #a6cdfe !important;
+	border-radius: 2px !important;
+}
+
+.lexical-content-renderer .SL_Theme__listItemUnchecked:before {
+	border: 1px solid #999 !important;
+	border-radius: 2px !important;
+}
+
+.lexical-content-renderer .SL_Theme__listItemChecked:before {
+	border: 1px solid rgb(61, 135, 245) !important;
+	border-radius: 2px !important;
+	background-color: #3d87f5 !important;
+	background-repeat: no-repeat !important;
+}
+
+.lexical-content-renderer .SL_Theme__listItemChecked:after {
+	content: '' !important;
+	cursor: pointer !important;
+	border-color: #fff !important;
+	border-style: solid !important;
+	position: absolute !important;
+	display: block !important;
+	top: 6px !important;
+	width: 3px !important;
+	left: 7px !important;
+	right: 7px !important;
+	height: 6px !important;
+	transform: rotate(45deg) !important;
+	border-width: 0 2px 2px 0 !important;
+}
+
+.lexical-content-renderer .SL_Theme__nestedListItem {
+	list-style-type: none !important;
+}
+
+.lexical-content-renderer .SL_Theme__nestedListItem:before,
+.lexical-content-renderer .SL_Theme__nestedListItem:after {
+	display: none !important;
+}
+
+/* Code highlighting tokens */
+.lexical-content-renderer .SL_Theme__tokenComment {
+	color: slategray !important;
+}
+
+.lexical-content-renderer .SL_Theme__tokenPunctuation {
+	color: #999 !important;
+}
+
+.lexical-content-renderer .SL_Theme__tokenProperty {
+	color: #905 !important;
+}
+
+.lexical-content-renderer .SL_Theme__tokenSelector {
+	color: #690 !important;
+}
+
+.lexical-content-renderer .SL_Theme__tokenOperator {
+	color: #9a6e3a !important;
+}
+
+.lexical-content-renderer .SL_Theme__tokenAttr {
+	color: #07a !important;
+}
+
+.lexical-content-renderer .SL_Theme__tokenVariable {
+	color: #e90 !important;
+}
+
+.lexical-content-renderer .SL_Theme__tokenFunction {
+	color: #dd4a68 !important;
+}
+
+.lexical-content-renderer .SL_Theme__mark {
+	background: rgba(255, 212, 0, 0.14) !important;
+	border-bottom: 2px solid rgba(255, 212, 0, 0.3) !important;
+	padding-bottom: 2px !important;
+}
+
+.lexical-content-renderer .SL_Theme__markOverlap {
+	background: rgba(255, 212, 0, 0.3) !important;
+	border-bottom: 2px solid rgba(255, 212, 0, 0.7) !important;
+}
+
+.lexical-content-renderer .SL_Theme__mark.selected {
+	background: rgba(72, 112, 223, 0.2) !important;
+	border-bottom: 2px solid rgba(72, 112, 223, 0.4) !important;
+}
+
+.lexical-content-renderer .SL_Theme__markOverlap.selected {
+	background: rgba(72, 112, 223, 0.5) !important;
+	border-bottom: 2px solid rgba(72, 112, 223, 0.7) !important;
+}
+
+.lexical-content-renderer .SL_Theme__embedBlock {
+	user-select: none !important;
+}
+
+.lexical-content-renderer .SL_Theme__embedBlockFocus {
+	outline: 2px solid rgb(60, 132, 244) !important;
+}
+
+.lexical-content-renderer .SL_Theme__layoutContainer {
+	display: flex !important;
+	gap: 10px !important;
+	margin: 8px 0 !important;
+}
+
+.lexical-content-renderer .SL_Theme__layoutItem {
+	flex: 1 !important;
+	min-width: 0 !important;
+}
+
+.lexical-content-renderer .SL_Theme__hr {
+	padding: 2px 2px !important;
+	border: none !important;
+	margin: 1em 0 !important;
+	cursor: pointer !important;
+}
+
+.lexical-content-renderer .SL_Theme__hr:after {
+	content: '' !important;
+	display: block !important;
+	height: 2px !important;
+	background-color: #ccc !important;
+	line-height: 2px !important;
+}
+
+.lexical-content-renderer .SL_Theme__hr.SL_Theme__hrSelected {
+	outline: 2px solid rgb(60, 132, 244) !important;
+	user-select: none !important;
+}
+
+.lexical-content-renderer .SL_Theme__specialText {
+	color: #e90 !important;
+}

@@ -3,7 +3,7 @@
 	import ContentNav from './(components)/(content-nav)/content-nav.svelte';
 </script>
 
-<aside class="h-[100dvh]">
+<div class="h-[100dvh] min-w-0">
 	<ContentNav />
 	<Content />
-</aside>
+</div>

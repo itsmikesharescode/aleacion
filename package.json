@@ -56,6 +56,6 @@
 	"dependencies": {
 		"@fontsource/poppins": "^5.2.6",
 		"@tabler/icons-svelte": "^3.34.0",
-		"twitter-text": "^3.1.0"
+		"svelte-lexical": "^0.6.1"
 	}
 }

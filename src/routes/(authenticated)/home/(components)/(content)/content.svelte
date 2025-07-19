@@ -1,16 +1,13 @@
 <script lang="ts">
 	import { ScrollArea } from '$lib/components/internals/scroll-area/index.js';
+	import PostingCard from './(components)/(posting-card)/posting-card.svelte';
 </script>
 
 <ScrollArea class="h-[calc(100dvh-76px]  pr-2">
 	<section class="mt-4.5 h-[calc(100dvh-76px)]">
 		<div class="flex flex-col gap-4">
 			{#each Array(60), i}
-				<div
-					class="bg-secondary flex h-[250px] w-full items-center justify-center rounded-lg text-2xl font-bold"
-				>
-					{i}
-				</div>
+				<PostingCard />
 			{/each}
 		</div>
 	</section>

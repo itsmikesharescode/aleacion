@@ -1,0 +1,242 @@
+---
+alwaysApply: true
+---
+
+# Development Rules for Svelte 5 + Shadcn Svelte + Tailwind CSS v4
+
+## Technology Stack
+
+- **Svelte 5**: Use the latest Svelte 5 features including runes, snippets, and new component syntax
+- **Shadcn Svelte**: Use @latest version for UI components
+- **Tailwind CSS v4**: Use the latest Tailwind v4 features and syntax
+- **TypeScript**: Prefer TypeScript for type safety
+
+## Svelte 5 Specific Rules
+
+### Runes Usage (Core Reactive System)
+
+- Use `$state()` for reactive state instead of `let` variables
+- Use `$derived()` for computed values instead of `$:`
+- Use `$effect()` for side effects instead of `$:`
+- Use `$props()` for component props instead of `export let`
+- Use `$bindable()` for two-way data binding props
+- Use `$inspect()` for debugging reactive state (like console.log but reactive)
+- Use `$state.raw()` for non-reactive state that can only be reassigned
+- Use `$derived.by()` for complex derivations that need a function
+
+### Component Structure (Modern Svelte 5)
+
+```svelte
+<script lang="ts">
+	// Props with destructuring, defaults, and types
+	let {
+		title,
+		count = 0,
+		items = [],
+		onUpdate,
+		bindableValue = $bindable()
+	}: {
+		title: string;
+		count?: number;
+		items?: any[];
+		onUpdate?: (value: number) => void;
+		bindableValue?: any;
+	} = $props();
+
+	// Reactive state
+	let isVisible = $state(false);
+	let user = $state({ name: '', email: '' });
+
+	// Derived/computed values
+	let doubledCount = $derived(count * 2);
+	let isEven = $derived(count % 2 === 0);
+
+	// Complex derivations
+	let expensiveCalculation = $derived.by(() => {
+		let total = 0;
+		for (const item of items) {
+			total += item.value;
+		}
+		return total;
+	});
+
+	// Effects for side effects
+	$effect(() => {
+		console.log('Count changed:', count);
+	});
+
+	// Cleanup effects
+	$effect(() => {
+		const interval = setInterval(() => {
+			console.log('tick');
+		}, 1000);
+
+		return () => clearInterval(interval);
+	});
+</script>
+```
+
+### Event Handling (New Syntax)
+
+- Use `onclick` instead of `on:click`
+- Use `oninput` instead of `on:input`
+- Use `onsubmit` instead of `on:submit`
+- Event attributes are case-sensitive: `onclick` vs `onClick`
+- Events fire after bindings (e.g., `oninput` after `bind:value`)
+- Can use shorthand: `<button {onclick}>` when variable name matches
+- Can spread events: `<button {...eventHandlers}>`
+
+### Snippets (Replace Slots)
+
+- Use `{#snippet name()}...{/snippet}` to define reusable markup
+- Use `{@render snippetName()}` to render snippets
+- Snippets can accept parameters: `{#snippet card(title, content)}`
+- Content inside component tags becomes `children` snippet automatically
+- Optional snippets: `{@render children?.()}`
+- Snippets replace the old slot system from Svelte 4
+
+### Bindings and State Management
+
+- Use `bind:value` for form inputs
+- Use `bind:this` for DOM references (read in effects, not during init)
+- Bindable props: `let { value = $bindable() } = $props()`
+- State proxies are deeply reactive for objects and arrays
+- Avoid mutating props unless they're bindable
+
+### Template Syntax Enhancements
+
+- Use `{#if condition}` for conditional rendering
+- Use `{#each items as item, index (item.id)}` with keys for lists
+- Use `{#await promise}` for async data handling
+- Use `{@html content}` for raw HTML (be careful with XSS)
+- Use `{@const value = expression}` for local constants in templates
+- Use `{@debug variable}` for debugging in development
+
+### Lifecycle and Effects
+
+- Use `onMount()` for component mounting logic
+- Use `onDestroy()` for cleanup (runs on server too)
+- Use `tick()` to wait for DOM updates
+- Prefer `$effect()` over deprecated `beforeUpdate`/`afterUpdate`
+- Use `$effect.pre()` to run before DOM updates
+- Use `$effect.root()` for manual effect management
+
+### Best Practices
+
+- Prefer `$derived()` over `$effect()` for computed values
+- Use `$effect()` for side effects, not state synchronization
+- Keep components small and focused
+- Use TypeScript for better type safety
+- Destructure props at the top level with defaults
+- Use meaningful names for reactive variables
+- Avoid deeply nested reactive objects when possible
+
+## Shadcn Svelte Rules
+
+### Component Imports
+
+- Import components from `$lib/components/internals/{component}`
+- Use proper TypeScript types for component props
+- Follow the established component patterns in the codebase
+
+### Component Usage
+
+```svelte
+<script>
+	import { Button } from '$lib/components/internals/button';
+	import { Card, CardContent, CardHeader, CardTitle } from '$lib/components/internals/card';
+</script>
+```
+
+## Tailwind CSS v4 Rules
+
+### Utility Classes
+
+- Use modern Tailwind v4 syntax and features
+- Prefer utility classes over custom CSS
+- Use responsive prefixes: `sm:`, `md:`, `lg:`, `xl:`, `2xl:`
+- Use dark mode variants: `dark:`
+
+### Layout & Spacing
+
+- Use modern spacing: `p-4`, `m-2`, `gap-4`
+- Use flexbox and grid utilities: `flex`, `grid`, `items-center`, `justify-between`
+- Use modern sizing: `w-full`, `h-screen`, `min-h-0`
+
+### Colors & Theming
+
+- Use semantic color names when available
+- Prefer CSS variables for theming
+- Use opacity modifiers: `bg-black/50`
+
+## File Organization
+
+### Component Structure
+
+- Place components in appropriate directories under `$lib/components/`
+- Use `internals/` for reusable UI components
+- Use `externals/` for page-specific components
+- Always include an `index.ts` file for exports
+
+### Naming Conventions
+
+- Use kebab-case for file names: `my-component.svelte`
+- Use PascalCase for component names in imports
+- Use camelCase for variables and functions
+
+## Code Quality
+
+### TypeScript
+
+- Always use TypeScript for better type safety
+- Define proper types for component props
+- Use `ComponentProps` and `ComponentEvents` types when extending components
+
+### Accessibility
+
+- Always include proper ARIA attributes
+- Use semantic HTML elements
+- Include keyboard navigation support
+- Ensure proper contrast ratios
+
+### Performance
+
+- Use `$derived` for computed values to optimize reactivity
+- Avoid unnecessary re-renders with proper state management
+- Use `$effect` sparingly and clean up properly
+
+## Import Patterns
+
+```svelte
+<script lang="ts">
+	// External libraries first
+	import { writable } from 'svelte/store';
+
+	// Internal components second
+	import { Button } from '$lib/components/internals/button';
+
+	// Local components last
+	import LocalComponent from './LocalComponent.svelte';
+
+	// Types
+	import type { ComponentProps } from 'svelte';
+</script>
+```
+
+## Error Handling
+
+- Use proper error boundaries where appropriate
+- Handle async operations with proper loading states
+- Provide meaningful error messages to users
+
+## Official Documentation Resources
+
+For the most up-to-date Svelte 5 information, reference:
+
+- **Official LLM Docs**: https://svelte.dev/docs/llms
+- **Full Documentation**: https://svelte.dev/llms-full.txt
+- **Medium Context**: https://svelte.dev/llms-medium.txt
+- **Small Context**: https://svelte.dev/llms-small.txt
+- **Third-party Distilled**: https://svelte-llm.khromov.se/
+
+When in doubt, always refer to the official Svelte 5 documentation and use the LLM-optimized docs above for the most accurate syntax and patterns.

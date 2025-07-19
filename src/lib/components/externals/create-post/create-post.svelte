@@ -4,6 +4,7 @@
 	import { buttonVariants } from '$lib/components/internals/button';
 	import RichTextEditor from '$lib/components/externals/richtext-editor/richtext-editor.svelte';
 	import IconMessageCircleQuestion from '@tabler/icons-svelte/icons/message-circle-question';
+	import Button from '$lib/components/internals/button/button.svelte';
 </script>
 
 <Dialog.Root>
@@ -13,20 +14,17 @@
 	</Dialog.Trigger>
 
 	<Dialog.Content
-		class="top-[20%] flex min-h-screen min-w-screen translate-y-[-20%] flex-col p-0 md:min-h-fit md:w-full md:max-w-[1024px] md:min-w-0"
+		class="top-[5%] flex min-h-screen min-w-screen translate-y-[-5%] flex-col gap-2 p-0 md:min-h-fit md:w-full md:max-w-[1150px] md:min-w-0"
 	>
-		<Dialog.Header class="p-6 pb-0">
-			<Dialog.Title>Are you sure absolutely sure?</Dialog.Title>
-			<Dialog.Description>
-				This action cannot be undone. This will permanently delete your account and remove your data
-				from our servers.
-			</Dialog.Description>
+		<Dialog.Header class="px-6 pt-6">
+			<Dialog.Title>Create Post</Dialog.Title>
 		</Dialog.Header>
 
-		<ScrollArea class="p-6 pt-0">
-			<div class="max-h-[60dvh] min-w-0">
+		<ScrollArea class="p-6 py-0">
+			<div class="max-h-[calc(100dvh-10rem)] min-w-0 md:max-h-[80dvh]">
 				<RichTextEditor />
 			</div>
 		</ScrollArea>
+		<Button class="m-6 mt-0 ml-auto">Post</Button>
 	</Dialog.Content>
 </Dialog.Root>
